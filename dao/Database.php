@@ -6,6 +6,7 @@ class Database
     private $accessoryTable;
     public function insertTable($table, $row)
     {
+        // insert data row into the table with tablename = table
         return $this->$table[] = $row;
     }
 
@@ -13,6 +14,7 @@ class Database
     {
         $product = array();
         foreach ($this->$table as $value) {
+            // get data has name = $name
             if ($value->getName() == $name) {
                 $product[] = $value;
             }
@@ -23,9 +25,10 @@ class Database
     public function updateTable($table, $row)
     {
         $id = $row->getID();
-        foreach($this->$table as $key => $value){
-            if($value->getID() == $id){
-               return $this->$table[$key] = $row;
+        foreach ($this->$table as $key => $value) {
+            if ($value->getID() == $id) {
+                // find id of row = id of data
+                return $this->$table[$key] = $row;
             }
         }
         return false;
@@ -33,15 +36,29 @@ class Database
 
     public function deleteTable($table, $row)
     {
+        $product = array();
+        foreach ($this->$table as $key => $value) {
+            if ($value->getID() == $row->getID()) {
+                unset($this->$table[$key]);
+            }
+        }
+        return $product;
     }
 
-    public function truncateTable($table)
+    public function truncateTable($db, $table)
     {
+        foreach($db as $item){
+            foreach ($this->$table as $item) {
+                unset($this->$table);
+            }
+        }
+        // return true;
     }
-    
-    public function getAllProduct($table){
+
+    public function getAllTable($table)
+    {
         $product = array();
-        foreach($this->$table as $value){
+        foreach ($this->$table as $value) {
             $product[] = $value;
         }
         return $product;

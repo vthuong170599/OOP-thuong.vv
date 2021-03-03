@@ -3,6 +3,7 @@ include 'entity/Product.php';
 class ProductDemo{
     protected $productDemo;
     public function createProductTest(&$id,$name,$categoryID,$price,$quantity){
+        // create data from product class
         return $this->productDemo = new Product($id++,$name,$categoryID,$price,$quantity);
     }
 
