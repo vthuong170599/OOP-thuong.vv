@@ -70,8 +70,8 @@ class Database
         return $tableName;
     }
 
-    public function updateTableByID(){
-
+    public function updateTableByID($id,$row){
+            
     }
 
     public function findByID($table,$id){

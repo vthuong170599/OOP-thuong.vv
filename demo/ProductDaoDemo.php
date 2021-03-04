@@ -1,6 +1,6 @@
 <?php
-require_once 'dao/CategoryDAO.php';
-class CategoryDaoDemo extends CategoryDAO{
+require_once 'dao/ProductDAO.php';
+class ProductDaoDemo extends ProductDAO{
 
     public function insertTest($row){
         return $this->insertRow($row);
