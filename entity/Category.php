@@ -6,6 +6,13 @@ class Category{
     private $status;
 
     // method
+    public function __construct($id,$name,$status)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->status = $status;
+    }
+
     public function getID(){
         return $this->id;
     }

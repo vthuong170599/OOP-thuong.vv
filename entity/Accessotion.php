@@ -6,6 +6,13 @@ class Accessotion{
     private $description;
 
     // method
+    public function __construct($id,$name,$description)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->description = $description;
+    }
+
     public function getID(){
         return $this->id;
     }
