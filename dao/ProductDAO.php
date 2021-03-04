@@ -39,4 +39,8 @@ class ProductDAO{
     public function findByIDCategory($id){
         return $this->database->findByID('productTable',$id);
     }
+
+    public function findByName($name){
+        return $this->database->selectTable('productTable',$name);
+    }
 }

@@ -39,4 +39,8 @@ class AccessotionDAO{
     public function findByIDCategory($id){
         return $this->database->findByID('accessoryTable',$id);
     }
+
+    public function findByName($name){
+        return $this->database->selectTable('accessoryTable',$name);
+    }
 }

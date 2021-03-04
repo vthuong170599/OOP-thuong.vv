@@ -41,5 +41,9 @@ class CategoryDAO
     public function findByIDCategory($id){
         return $this->database->findByID('categoryTable',$id);
     }
+
+    public function findByName($name){
+        return $this->database->selectTable('categoryTable',$name);
+    }
     
 }

@@ -1,13 +1,10 @@
 <?php
+
 class Database
 {
     private $productTable;
     private $categoryTable;
     private $accessoryTable;
-
-    public function setCategoryTable($categoryTable){
-        $this->categoryTable = $categoryTable;
-    }
 
     public function insertTable($table, $row)
     {
@@ -55,9 +52,10 @@ class Database
         unset($this->$table);
     }
 
-    public function printTable($table){
-        foreach($this->$table as $item){
-            echo 'ID: '.$item->getID().' Name: '.$item->getName().'<br>';
+    public function printTable($table)
+    {
+        foreach ($this->$table as $item) {
+            echo 'ID: ' . $item->getID() . ' Name: ' . $item->getName() . '<br>';
         }
     }
 
@@ -70,13 +68,21 @@ class Database
         return $tableName;
     }
 
-    public function updateTableByID($id,$row){
-            
+    public function updateTableByID($id, $row, $table)
+    {
+        foreach ($this->$table as $key => $item) {
+            if($item->getID() == $id){
+                $this->$table[$key] = $row;
+                return true;
+            }
+        }
+        return false;
     }
 
-    public function findByID($table,$id){
-        foreach($this->$table as $item){
-            if($item->getID() == $id){
+    public function findByID($table, $id)
+    {
+        foreach ($this->$table as $item) {
+            if ($item->getID() == $id) {
                 return $item;
             }
         }

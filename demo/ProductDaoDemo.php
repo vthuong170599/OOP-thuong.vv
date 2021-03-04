@@ -21,4 +21,9 @@ class ProductDaoDemo extends ProductDAO{
     public function findByIDTest($id){
         return $this->findByIDCategory($id);
     }
+
+    public function findByNameTest($name)
+    {
+        return $this->findByName($name);
+    }
 }

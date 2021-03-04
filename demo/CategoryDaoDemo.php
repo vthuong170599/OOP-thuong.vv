@@ -21,4 +21,9 @@ class CategoryDaoDemo extends CategoryDAO{
     public function findByIDTest($id){
         return $this->findByIDCategory($id);
     }
+
+    public function findByNameTest($name)
+    {
+        return $this->findByName($name);
+    }
 }

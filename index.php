@@ -110,16 +110,30 @@ $id =1;
 // var_dump($productDaoDemo->findByIDTest(3));
 // echo '<pre>';
 
-$accessotionDaoDemo->insertTest(new Accessotion(1,'as','sadas'));
-$accessotionDaoDemo->insertTest(new Accessotion(2,'thuong','gnouht'));
-$accessotionDaoDemo->insertTest(new Accessotion(3,'nxkso','ahusdhsa'));
+// $accessotionDaoDemo->insertTest(new Accessotion(1,'as','sadas'));
+// $accessotionDaoDemo->insertTest(new Accessotion(2,'thuong','gnouht'));
+// $accessotionDaoDemo->insertTest(new Accessotion(3,'nxkso','ahusdhsa'));
+
+// echo '<pre>';
+// var_dump($accessotionDaoDemo->findAllTest());
+// echo '<pre>';
+
+// var_dump($accessotionDaoDemo->findByNameTest('123'));
+
+// echo '<pre>';
+// var_dump($accessotionDaoDemo->findAllTest());
+// echo '<pre>';
+
+$dataCate = new Category(1,'aasdsd',1);
+
+$db->insertTable('categoryTable',new Category(1,'asd',2));
+$db->insertTable('categoryTable',new Category(2,'uozciuc',3));
+echo '<pre>';
+var_dump($db);
+echo '<pre>';
+
+echo $db->updateTableByID(1,$dataCate,'categoryTable');
 
 echo '<pre>';
-var_dump($accessotionDaoDemo->findAllTest());
-echo '<pre>';
-
-var_dump($accessotionDaoDemo->DeleteTest(0));
-
-echo '<pre>';
-var_dump($accessotionDaoDemo->findAllTest());
+var_dump($db);
 echo '<pre>';
