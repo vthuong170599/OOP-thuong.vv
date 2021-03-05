@@ -1,23 +1,33 @@
-<?php 
+<?php
 require_once 'EntityInterface.php';
-abstract class BaseRow{
+abstract class BaseRow
+{
     protected $id;
     protected $name;
 
-    public function getID(){
-        return $this->id;
-    }
-
-    public function setID($id){
+    public function __construct($id, $name)
+    {
         $this->id = $id;
-    }
-
-    public function getName(){
-        return $this->name;
-    }
-
-    public function setName($name){
         $this->name = $name;
     }
 
+    public function getID()
+    {
+        return $this->id;
+    }
+
+    public function setID($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }

@@ -41,9 +41,9 @@ class DatabaseDemo extends Database
     {
         $amountRecord = 10;
         for ($i = 0; $i < $amountRecord; $i++) {
-            $this->insertTableTest('productTable', new Product($i, 'new product' . $i, 3, 1000, 2));
-            $this->insertTableTest('categoryTable', new Category($i, 'new category' . $i, 1));
-            $this->insertTableTest('accessoryTable', new Accessotion($i, 'new accessory' . $i, 'adad'));
+            $this->insertTableTest('productTable', new Product($i, uniqid(), rand(1,10)));
+            $this->insertTableTest('categoryTable', new Category($i,  uniqid(), rand(1,10)));
+            $this->insertTableTest('accessoryTable', new Accessotion($i,  uniqid(), rand(1,10)));
         }
     }
 

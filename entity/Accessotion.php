@@ -9,8 +9,7 @@ class Accessotion extends BaseRow{
     // method
     public function __construct($id,$name,$description)
     {
-        $this->id = $id;
-        $this->name = $name;
+        parent::__construct($id,$name);
         $this->description = $description;
     }
 

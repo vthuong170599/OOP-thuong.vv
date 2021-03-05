@@ -1,7 +1,7 @@
 <?php 
 include 'demo/DatabaseDemo.php';
 require_once 'common/kenel.php';
-
+require_once 'common/AutoLoad.php';
 
 $dbDemo = new DatabaseDemo();
 $db = Database::createDatabase();
@@ -29,7 +29,24 @@ $id =1;
 // var_dump($category->findAll());
 // echo '<pre>';
 
-$categoryDaoDemo->insertTest(new Category(1,'as',1));
-echo '<pre>';
-var_dump($categoryDaoDemo->findAllTest());
-echo '<pre>';
+// $categoryDaoDemo->insertTest(new Category(1,'as',1));
+// echo '<pre>';
+// var_dump($categoryDaoDemo->findAllTest());
+// echo '<pre>';
+
+// $dbDemo->initDatabase();
+
+// echo '<pre>';
+// var_dump($dbDemo->getAllTableTest('productTable'));
+// echo '<pre>';
+
+// var_dump(isValidTableName('productTable'));
+// var_dump($db->insertTable('categorasdsayTable',new Category(1,'sada',2)));
+
+var_dump($db->insertTable('categoryTable',new Category(1,'sa',2)));
+echo '<br>';
+var_dump($db->findByID('categoryTable',1));
+
+// echo '<pre>';
+// var_dump($db);
+// echo '<pre>';

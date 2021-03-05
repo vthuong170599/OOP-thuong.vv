@@ -9,8 +9,7 @@ class Category extends BaseRow{
     // method
     public function __construct($id,$name,$status)
     {
-        $this->id = $id;
-        $this->name = $name;
+        parent::__construct($id,$name);
         $this->status = $status;
     }
 

@@ -1,5 +1,5 @@
 <?php
-
+require_once 'common/AutoLoad.php';
 class Database
 {
     private static $database;
@@ -18,12 +18,18 @@ class Database
     public function insertTable($table, BaseRow $row)
     {
         // insert data row into the table with tablename = table
+        if(!isValidTableName($table)){
+            return false;
+        }
         return $this->$table[] = $row;
     }
 
     public function selectTable($table, $name)
     {
-        $tableName = array();
+        if(!isValidTableName($table)){
+            return false;
+        }
+        $tableName = [];
         foreach ($this->$table as $item) {
             // get data has name = $name
             if ($item->getName() == $name) {
@@ -35,6 +41,9 @@ class Database
 
     public function updateTable($table, BaseRow $row)
     {
+        if(!isValidTableName($table) || !isValidEntity($row)){
+            return false;
+        }
         $id = $row->getID();
         foreach ($this->$table as $key => $item) {
             if ($item->getID() == $id) {
@@ -47,6 +56,9 @@ class Database
 
     public function deleteTable($table, $id)
     {
+        if(!isValidTableName($table)){
+            return false;
+        }
         // $tableName = array();
         foreach ($this->$table as $key => $item) {
             if ($item->getID() == $id) {
@@ -58,7 +70,10 @@ class Database
 
     public function truncateTable($table)
     {
-        unset($this->$table);
+        if(!isValidTableName($table)){
+            return false;
+        }
+        $this->$table = [];
     }
 
     public function printTable($table)
@@ -70,6 +85,9 @@ class Database
 
     public function getAllTable($table)
     {
+        if(!isValidTableName($table)){
+            return false;
+        }
         $tableName = array();
         foreach ($this->$table as $item) {
             $tableName[] = $item;
@@ -79,6 +97,9 @@ class Database
 
     public function updateTableByID($id, BaseRow $row, $table)
     {
+        if(!isValidTableName($table) || !isValidEntity($row)){
+            return false;
+        }
         foreach ($this->$table as $key => $item) {
             if($item->getID() == $id){
                 $this->$table[$key] = $row;
@@ -90,6 +111,9 @@ class Database
 
     public function findByID($table, $id)
     {
+        if(!isValidTableName($table)){
+            return false;
+        }
         foreach ($this->$table as $item) {
             if ($item->getID() == $id) {
                 return $item;
