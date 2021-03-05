@@ -1,9 +1,10 @@
 <?php 
-class Accessotion{
+require_once 'baseRow.php';
+class Accessotion extends BaseRow{
     // properties
-    private $id;
-    private $name;
-    private $description;
+    protected $id;
+    protected $name;
+    protected $description;
 
     // method
     public function __construct($id,$name,$description)
@@ -11,22 +12,6 @@ class Accessotion{
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
-    }
-
-    public function getID(){
-        return $this->id;
-    }
-
-    public function setID($id){
-        $this->id = $id;
-    }
-
-    public function getName(){
-        return $this->name;
-    }
-
-    public function setName($name){
-        $this->name = $name;
     }
 
     public function getDescription(){

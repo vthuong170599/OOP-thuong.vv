@@ -1,9 +1,10 @@
 <?php 
-class Category{
+require_once 'baseRow.php';
+class Category extends BaseRow{
     // properties
-    private $id;
-    private $name;
-    private $status;
+    protected $id;
+    protected $name;
+    protected $status;
 
     // method
     public function __construct($id,$name,$status)
@@ -11,22 +12,6 @@ class Category{
         $this->id = $id;
         $this->name = $name;
         $this->status = $status;
-    }
-
-    public function getID(){
-        return $this->id;
-    }
-
-    public function setID($id){
-        $this->id = $id;
-    }
-
-    public function getName(){
-        return $this->name;
-    }
-
-    public function setName($name){
-        $this->name = $name;
     }
 
     public function getStatus(){

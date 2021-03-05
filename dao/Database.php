@@ -2,11 +2,20 @@
 
 class Database
 {
-    private $productTable;
-    private $categoryTable;
-    private $accessoryTable;
+    private static $database;
+    protected $productTable;
+    protected $categoryTable;
+    protected $accessoryTable;
 
-    public function insertTable($table, $row)
+    public static function createDatabase(){
+        if(self::$database !== null){
+            return self::$database;
+        }
+        self::$database = new Database();
+        return self::$database;
+    }
+
+    public function insertTable($table, BaseRow $row)
     {
         // insert data row into the table with tablename = table
         return $this->$table[] = $row;
@@ -24,7 +33,7 @@ class Database
         return $tableName;
     }
 
-    public function updateTable($table, $row)
+    public function updateTable($table, BaseRow $row)
     {
         $id = $row->getID();
         foreach ($this->$table as $key => $item) {
@@ -68,7 +77,7 @@ class Database
         return $tableName;
     }
 
-    public function updateTableByID($id, $row, $table)
+    public function updateTableByID($id, BaseRow $row, $table)
     {
         foreach ($this->$table as $key => $item) {
             if($item->getID() == $id){

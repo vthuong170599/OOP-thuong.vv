@@ -1,37 +1,18 @@
 <?php
-class Product
+require_once 'baseRow.php';
+class Product extends BaseRow
 {
     // properties
-    private $id;
-    private $name;
-    private $categoryID;
-    private $price;
-    private $quantity;
+    protected $id;
+    protected $name;
+    protected $categoryID;
 
     //method
-    public function __construct($id,$name,$categoryID,$price,$quantity)
+    public function __construct($id,$name,$categoryID)
     {
         $this->id = $id;
         $this->name = $name;
         $this->categoryID = $categoryID;
-        $this->price = $price;
-        $this->quantity = $quantity;
-    }
-
-    public function getID(){
-        return $this->id;
-    }
-
-    public function setID($id){
-        $this->id = $id;
-    }
-
-    public function getName(){
-        return $this->name;
-    }
-
-    public function setName($name){
-        $this->name = $name;
     }
 
     public function getCategoryID(){
@@ -42,19 +23,4 @@ class Product
         $this->categoryID = $categoryID;
     }
     
-    public function getPrice(){
-        return $this->price;
-    }
-
-    public function setPrice($price){
-        $this->price = $price;
-    }
-
-    public function getQuantity(){
-        return $this->quantity;
-    }
-
-    public function setQuantity($quantity){
-        $this->quantity = $quantity;
-    }
 }
